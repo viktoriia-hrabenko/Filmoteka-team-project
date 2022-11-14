@@ -9,7 +9,7 @@ const renderMoviesList = (movies) => {
             const markup = `
                 <div class="movie-card">
                     <li class="movie-card__item" id="${movie.id}">
-                        <a class="movie-card__link>
+                        <a href="#" class="movie-card__link>
                             <img class="movie-card__image"src="${movie.poster_path}" alt="${movie.title}" />
                                 <div class="info">
                                     <p class="info__item">${movie.original_title}</p>
