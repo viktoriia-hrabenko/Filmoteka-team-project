@@ -3,8 +3,9 @@ import { refs } from '../refs/refs';
 export { renderMoviesList };
 
 const renderMoviesList = (movies) => {
+    refs.moviesList.innerHTML = '';
     const markupMoviesList = movies
-        .map(movie =>{
+        .map(movie => {
             const markup = `
                 <div class="movie-card">
                     <li class="movie-card__item" id="${movie.id}">

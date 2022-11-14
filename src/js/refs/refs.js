@@ -4,7 +4,7 @@ export const refs = {
     formInput: document.querySelector('.form__input'),
     notification: document.querySelector('.notification'),
     loader: document.querySelector('.loader'),
-    // overlay: document.querySelector('.overlay'),
-    // modal: document.querySelector('.modal'),
-    // filmOverlay: document.querySelector('.film__overlay'),
+    overlay: document.querySelector('.overlay'),
+    modal: document.querySelector('.modal'),
+    filmOverlay: document.querySelector('.film__overlay'),
   };

@@ -4,9 +4,7 @@ const apiKey = '92be59e0090ddfe5570b8756c403476a';
 
 export class FetchApiMovies {
   constructor() {
-    this.serchQuery = '';
     this.page = 1;
-    this.loadedHits = 0;
   }
 
 async getTrending () {
@@ -26,5 +24,4 @@ async getMovieDetails (movie_id) {
     const response = await axios.get(`${axios.defaults.baseURL}`);
     return response.data;
   };
-
 }
