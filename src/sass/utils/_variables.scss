@@ -1,0 +1,12 @@
+$colors: (
+    'header-text-color' : #fff,
+    'header-background-color' : #0000008F,
+    'footer-text-color' : #545454,
+    'title' : #000,
+    'accent': #ff6b01,
+    'error' : #ff001b
+);
+
+@function getColor($key) {
+    @return map-get($colors, $key);
+}

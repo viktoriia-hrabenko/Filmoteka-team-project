@@ -1,0 +1,33 @@
+body {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+p, ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: currentColor;
+}
+
+.container {
+    margin: 0px, auto;
+    padding: 0px, 15px;
+    width: 100%;
+}
+
+.section {
+    padding: 40px 0;
+}
+
