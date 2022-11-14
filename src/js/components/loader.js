@@ -1,4 +1,4 @@
-import { refs } from '../../refs/refs';
+import { refs } from '../refs/refs';
 
 export class Loader {
   on() {
