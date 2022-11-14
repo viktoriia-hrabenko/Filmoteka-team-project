@@ -1,5 +1,5 @@
 import { refs } from '../refs/refs';
-import { fetchApiMovies } from './js/fetchMovies';
+import { fetchApiMovies } from  '../api/fetchMovies';
 import { renderMoviesList } from '../templates/renderMovies';
 import { loader } from './loader';
 
