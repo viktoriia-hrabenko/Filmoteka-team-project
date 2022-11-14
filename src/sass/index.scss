@@ -1,2 +1,10 @@
 @import './common';
-@import './example';
+
+@import './base/global';
+@import './base/modal';
+
+@import './components/header';
+@import './components/main';
+@import './components/footer';
+@import './components/pagination';
+@import './components/loader';
