@@ -3,12 +3,14 @@
     width: 100%;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: center;   
 
     background-color: getColor(footer-bacground-color);
 }
 
 .footer__text {
     color: getColor(footer-text-color);
+    
+    display: flex;
+    justify-content: center;  
 }
