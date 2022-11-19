@@ -1,16 +1,74 @@
 .footer {
-    height: 77px;
-    width: 100%;
-
-    display: flex;
-    align-items: center;   
-
-    background-color: getColor(footer-bacground-color);
-}
-
-.footer__text {
-    color: getColor(footer-text-color);
-    
-    display: flex;
-    justify-content: center;  
-}
+    background-color: #f7f7f7;
+    padding: 28px 0;
+    &__container {
+      @media screen and (min-width: 768px) {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  
+    &__text {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.14;
+      color: var(--secondary-text-color);
+      @media screen and (min-width: 768px) {
+        font-size: 16px;
+        line-height: 1.19;
+      }
+    }
+    &__rights {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      @media screen and (min-width: 768px) {
+        &:not(:last-child) {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &__rights-icon {
+      &::before {
+        content: '\00a9';
+        margin-right: 5px;
+      }
+    }
+  
+    &__rights-border {
+      display: block;
+      padding: 0 5px;
+    }
+    &__button {
+      text-decoration: underline;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .icon-heart {
+    width: 14px;
+    height: 12px;
+    fill: #ff6b08;
+  }
+  .animation-heart {
+    animation: anime;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.4, 1);
+    &:hover,
+    &:focus {
+      animation-play-state: paused;
+    }
+  }
+  @keyframes anime {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
