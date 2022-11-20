@@ -2,6 +2,8 @@ import { getTrending, getSearch, getMovieDetails } from './js/api/fetchMovies';
 import { renderMoviesList } from './js/templates/renderMovies';
 import { onSearchFormButtonClick } from './js/components/searchMovie';
 
+import './js/templates/footer';
+
 import { FetchApiMovies } from './js/api/fetchMovies';
 const fetchApiMovies = new FetchApiMovies();
 
@@ -12,3 +14,4 @@ async function showTrendingMovies() {
 }
 
 showTrendingMovies();
+
