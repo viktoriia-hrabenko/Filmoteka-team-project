@@ -1,4 +1,5 @@
 import { refs } from '../refs/refs';
+import { getGenresIdsList } from '../api/getGenresIdsList';
 import { FetchApiMovies } from '../api/fetchMovies';
 import { renderMoviesList } from '../templates/renderMovies';
 import { Loader } from './loader';
@@ -15,6 +16,7 @@ async function onSearchFormButtonClick(element) {
 
   loader.on();
 
+  const genresList = await getGenresIdsList();
   const query = refs.formInput.value.trim();
   const response = await fetchApiMovies.getSearch(query, 1);
   const movies = await response.results;
@@ -30,6 +32,7 @@ async function onSearchFormButtonClick(element) {
     return;
   }
 
-  renderMoviesList(movies);
+  renderMoviesList(movies, genresList);
+
   loader.off();
 }
