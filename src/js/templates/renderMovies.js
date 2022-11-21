@@ -31,5 +31,5 @@ const renderMoviesList = movies => {
     })
     .join('');
 
-  refs.moviesList.insertAdjacentHTML('beforeend', markupMoviesList);
+  refs.moviesList.innerHTML = markupMoviesList;
 };

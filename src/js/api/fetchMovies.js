@@ -4,14 +4,15 @@ const apiKey = '92be59e0090ddfe5570b8756c403476a';
 
 export class FetchApiMovies {
   constructor() {
-    this.page = 1;
+    
   }
 
-  async getTrending() {
+  async getTrending(page) {
     try {
-      axios.defaults.baseURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`;
+      axios.defaults.baseURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}`;
       const response = await axios.get(`${axios.defaults.baseURL}`);
       return response.data;
+      
     } catch (error) {
       console.log('Opss, something went wrong');
     }
@@ -21,6 +22,7 @@ export class FetchApiMovies {
     try {
       axios.defaults.baseURL = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=${page}&language=en-US`;
       const response = await axios.get(`${axios.defaults.baseURL}`);
+      console.log(response);
       return response.data;
     } catch (error) {
       console.log('Opss, something went wrong');

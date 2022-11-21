@@ -1,0 +1,21 @@
+.pagination-container {
+    
+    text-align: center;
+
+    &__button {
+        border: none;
+        background-color: inherit;
+        font-weight: 500;
+        font-size: 12px;
+        cursor: pointer;
+        line-height: 16px;
+        width: 40px;
+        height: 40px;
+
+        &--active {
+
+            border: 1px black solid
+        }
+      
+      }
+    }
