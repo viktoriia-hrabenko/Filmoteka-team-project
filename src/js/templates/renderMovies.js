@@ -14,7 +14,7 @@ const renderMoviesList = movies => {
   const markupMoviesList = movies
     .map(movie => {
       const markup = `
-                <div class="movie-card">
+                <div class="movie-card" data-modal-open>
                     <li class="movie-card__item" id="${movie.id}">
                         <a href="#" class="movie-card__link">
                             <img class="movie-card__image" src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.original_title}" />
