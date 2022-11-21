@@ -7,9 +7,9 @@ export class FetchApiMovies {
     this.page = 1;
   }
 
-  async getTrending() {
+  async getTrending(page) {
     try {
-      axios.defaults.baseURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`;
+      axios.defaults.baseURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}`;
       const response = await axios.get(`${axios.defaults.baseURL}`);
       return response.data;
     } catch (error) {

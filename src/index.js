@@ -9,10 +9,12 @@ import './js/templates/footer';
 import { FetchApiMovies } from './js/api/fetchMovies';
 const fetchApiMovies = new FetchApiMovies();
 
+let page = 1;
+
 async function showTrendingMovies() {
   const genresList = await getGenresIdsList();
 
-  const response = await fetchApiMovies.getTrending();
+  const response = await fetchApiMovies.getTrending(page);
   const movies = await response.results;
 
   renderMoviesList(movies, genresList);
