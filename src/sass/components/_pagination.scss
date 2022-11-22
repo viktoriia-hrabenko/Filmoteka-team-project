@@ -11,11 +11,23 @@
         line-height: 16px;
         width: 40px;
         height: 40px;
+        
 
         &--active {
 
-            border: 1px black solid
+            border-radius: 4px;
+            color: white;
+            background-color: #FF6B08;
         }
       
       }
+      &__prev-button, &__next-button {
+
+        width: 40px; 
+        height: 40px; 
+    border-radius: 4px; 
+border: none; 
+background-color: #F7F7F7; 
+cursor: pointer}
+
     }

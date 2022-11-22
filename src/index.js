@@ -12,7 +12,7 @@ export async function showTrendingMovies(page) {
   const response = await fetchApiMovies.getTrending(page);
   const movies = await response.results;
   renderMoviesList(movies);
-  setPagination();
+  setPagination(page);
 }
 
 showTrendingMovies(1);

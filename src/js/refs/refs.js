@@ -9,4 +9,6 @@ export const refs = {
   filmOverlay: document.querySelector('.film__overlay'),
   searchForm: document.querySelector('.form'),
   paginationContainer: document.querySelector('.pagination-numbers'),
+  nextButton: document.querySelector('.pagination-container__next-button'),
+  prevButton: document.querySelector('.pagination-container__prev-button')
 };
