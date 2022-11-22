@@ -1,4 +1,4 @@
-import { FetchApiMovies } from '../api/fetchMovies';
+import { FetchApiMovies } from './fetchMovies';
 
 const fetchApiMovies = new FetchApiMovies();
 

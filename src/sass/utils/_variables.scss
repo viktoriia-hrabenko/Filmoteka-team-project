@@ -5,7 +5,10 @@ $colors: (
     'footer-bacground-color': #F7F7F7,
     'title' : #000,
     'accent': #ff6b01,
-    'error' : #ff001b
+    'error' : #ff001b,
+    'background-modal':#FFFFFF,
+
+
 );
 
 @function getColor($key) {
