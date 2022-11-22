@@ -34,5 +34,7 @@ async function onSearchFormButtonClick(element) {
 
   renderMoviesList(movies, genresList);
 
+  renderMoviesList(movies);
+  refs.paginationContainer.innerHTML = "";
   loader.off();
 }
