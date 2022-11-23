@@ -18,8 +18,10 @@ const renderMoviesList = (movies, genresList) => {
   const markupMoviesList = movies
     .map(movie => {
       const markup = `
-                <div class="movie-card" data-modal-open>
-                    <li class="movie-card__item" id="${movie.id}">
+                
+                    <li class="movie-card__item" id="${
+                      movie.id
+                    }" data-modal-open>
                         <div class="movie-card__link">
                             <img class="movie-card__image" src="https://image.tmdb.org/t/p/w500${
                               movie.poster_path
@@ -38,7 +40,7 @@ const renderMoviesList = (movies, genresList) => {
                                 </div>
                         </div>
                     </li>
-                <div> 
+                
                 `;
       return markup;
     })
