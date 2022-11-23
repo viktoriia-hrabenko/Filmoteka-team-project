@@ -28,8 +28,8 @@ const renderMoviesList = (movies, genresList) => {
                                     <p class="info__item">${
                                       movie.original_title
                                     }</p>
-                                    <p class="info__item">${movie.genre_ids}</p>
-                                    <a href="#" class="info__item">${movie.release_date.slice(
+                                    <p class="info__about-item">${movie.genre_ids}</p>
+                                    <a href="#" class="info__about-item">${movie.release_date.slice(
                                       0,
                                       4
                                     )}</a>
