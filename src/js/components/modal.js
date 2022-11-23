@@ -11,5 +11,10 @@ export function addToggleModal() {
   document.querySelectorAll('[data-modal-open]').forEach(modal => {
     modal.addEventListener('click', toggleModal);
   });
+
   refsModal.modalClose.addEventListener('click', toggleModal);
+
+  document
+    .querySelector('[data-modal-close]')
+    .addEventListener('click', toggleModal);
 }
