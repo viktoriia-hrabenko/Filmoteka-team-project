@@ -23,3 +23,9 @@ async function showTrendingMovies() {
 const showMoviesAndModal = showTrendingMovies().then(() => {
   addToggleModal();
 });
+
+
+
+export {
+  showTrendingMovies
+}
