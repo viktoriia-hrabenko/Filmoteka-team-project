@@ -10,7 +10,7 @@ const renderMoviesList = (movies, genresList) => {
   movies.forEach(movie => {
     const genres = movie.genre_ids.map(genreId => {
       const genreName = genresList.find(genre => genre.id === genreId);
-      return `<a href="#"> ${genreName.name}</a>`;
+      return `<span> ${genreName.name}</span>`;
     });
     movie.genre_ids = genres;
   });
@@ -28,11 +28,13 @@ const renderMoviesList = (movies, genresList) => {
                                     <p class="info__item">${
                                       movie.original_title
                                     }</p>
-                                    <p class="info__about-item">${movie.genre_ids}</p>
-                                    <a href="#" class="info__about-item">${movie.release_date.slice(
+                                    <p class="info__about-item">${
+                                      movie.genre_ids
+                                    }</p>
+                                    <div class="info__about-item">${movie.release_date.slice(
                                       0,
                                       4
-                                    )}</a>
+                                    )}</div>
                                 </div>
                         </div>
                     </li>
