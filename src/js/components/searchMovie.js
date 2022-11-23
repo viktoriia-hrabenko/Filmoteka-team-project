@@ -2,6 +2,7 @@ import { refs } from '../refs/refs';
 import { getGenresIdsList } from '../api/getGenresIdsList';
 import { FetchApiMovies } from '../api/fetchMovies';
 import { renderMoviesList } from '../templates/renderMovies';
+import { addToggleModal } from '../components/modal';
 import { Loader } from './loader';
 
 export { onSearchFormButtonClick };
@@ -33,8 +34,8 @@ async function onSearchFormButtonClick(element) {
   }
 
   renderMoviesList(movies, genresList);
+  addToggleModal();
 
-  renderMoviesList(movies);
-  refs.paginationContainer.innerHTML = "";
+  refs.paginationContainer.innerHTML = '';
   loader.off();
 }
