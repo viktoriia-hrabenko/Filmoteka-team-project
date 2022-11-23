@@ -15,3 +15,9 @@ footerBntRef.addEventListener('click', toggleModalTeam);
 
 closeModalBtnRef.addEventListener('click', toggleModalTeam);
 
+function onCloseModal(event) {
+  if (event.code === 'Escape') {
+      instance.close();
+      window.removeEventListener('keydown', onCloseModal)
+  };
+};
