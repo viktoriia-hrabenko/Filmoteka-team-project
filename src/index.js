@@ -7,6 +7,7 @@ import { addToggleModal } from './js/components/modal';
 import './js/templates/footer';
 import './js/templates/theme';
 
+import { refs } from './js/refs/refs';
 import { FetchApiMovies } from './js/api/fetchMovies';
 import { Loader } from './js/components/loader';
 const fetchApiMovies = new FetchApiMovies();
