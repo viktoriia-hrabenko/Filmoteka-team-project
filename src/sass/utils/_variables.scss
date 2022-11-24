@@ -1,16 +1,14 @@
 $colors: (
-    'header-text-color' : #fff,
-    'header-background-color' : #0000008F,
-    'footer-text-color' : #545454,
-    'footer-bacground-color': #F7F7F7,
-    'title' : #000,
-    'accent': #ff6b01,
-    'error' : #ff001b,
-    'background-modal':#FFFFFF,
-
-
+  'header-text-color': #fff,
+  'header-background-color': #0000008f,
+  'footer-text-color': #545454,
+  'footer-bacground-color': #f7f7f7,
+  'title': #000,
+  'accent': #ff6b01,
+  'error': #ff001b,
+  'background-modal': #ffffff,
 );
 
 @function getColor($key) {
-    @return map-get($colors, $key);
+  @return map-get($colors, $key);
 }

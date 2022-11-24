@@ -18,8 +18,13 @@ export function addToggleModal() {
   document.querySelectorAll('[data-modal-open]').forEach(modal => {
     modal.addEventListener('click', toggleModal);
   });
+
   refsModal.modalClose.addEventListener('click', toggleModal);
-  }
+
+  document
+    .querySelector('[data-modal-close]')
+    .addEventListener('click', toggleModal);
+}
 
 
 const modalMoviePoster = document.querySelector('.modal-movie__poster--img');
@@ -78,7 +83,5 @@ createModalMovie.forEach (movie => {
         modalMovieButtonQueued.dataset.id = movie.id;
   };
 
-
-//////
 
 
