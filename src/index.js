@@ -7,7 +7,9 @@ import { addToggleModal } from './js/components/modal';
 import './js/templates/footer';
 
 import { FetchApiMovies } from './js/api/fetchMovies';
+import { Loader } from './js/components/loader';
 const fetchApiMovies = new FetchApiMovies();
+const loader = new Loader();
 
 let page = 1;
 
@@ -19,6 +21,7 @@ async function showTrendingMovies(page) {
 
   renderMoviesList(movies, genresList);
   setPagination(page);
+  loader.off();
 }
 
 const showMoviesAndModal = showTrendingMovies(1).then(() => {
@@ -26,3 +29,9 @@ const showMoviesAndModal = showTrendingMovies(1).then(() => {
 });
 
 export { showTrendingMovies };
+
+// close welcome modal
+setTimeout(() => {
+  document.querySelector('.welcome-overlay').classList.add('off');
+  document.querySelector('.welcome-text').classList.add('off');
+}, 700);
