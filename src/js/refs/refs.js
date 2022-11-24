@@ -8,7 +8,8 @@ export const refs = {
   modal: document.querySelector('.modal'),
   filmOverlay: document.querySelector('.film__overlay'),
   searchForm: document.querySelector('.form'),
-  paginationContainer: document.querySelector('.pagination-numbers'),
+  paginationNumbers: document.querySelector('.pagination-numbers'),
+  paginationContainer: document.querySelector('.pagination-container'),
   nextButton: document.querySelector('.pagination-container__next-button'),
-  prevButton: document.querySelector('.pagination-container__prev-button')
+  prevButton: document.querySelector('.pagination-container__prev-button'),
 };
