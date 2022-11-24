@@ -1,0 +1,63 @@
+.welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px);
+}
+
+.welcome-bar {
+  width: 100%;
+  height: 100px;
+  max-width: 480px;
+  position: absolute;
+  background-color: getColor('accent');
+}
+
+.welcome-text {
+  font-size: 60px;
+  text-align: center;
+  font-weight: 700;
+  -webkit-text-stroke: 2px black;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  animation: loading 0.7s linear;
+  color: getColor('accent');
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .welcome-text {
+    font-size: 100px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .welcome-text {
+    font-size: 120px;
+  }
+}
