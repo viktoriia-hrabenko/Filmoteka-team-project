@@ -1,9 +1,9 @@
 :root {
-    --bg-color: rgb(238, 238, 238);
+    --bg-color: #fff;
     --p-color: #000;
   }
   [data-theme='dark'] {
-    --bg-color: #000;
+    --bg-color: rgba(0, 0, 0, 0.93);
     --p-color: #fff;
   }
   body {
