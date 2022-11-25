@@ -4,34 +4,34 @@
 <div class="modal-movie__backdrop modal-movie__backdrop--is-hidden">
   <div class="modal-movie" data-modal>
     <button class="modal-movie__button--close" data-modal-close>
-      <svg class="modal-movie__icon--close" width="14" height="14">
+      <svg class="modal-content__icon-close-team" width="14" height="14">
         <use href="./images/icons.svg#icon-close"></use>
       </svg>
     </button>
     <div class="modal-movie__content">
       <div class="modal-movie__poster">
-        <img class="modal-movie__poster--img" src="https://image.tmdb.org/t/p/w500" alt="movie poster"/>
+        <img class="modal-movie__poster--img" src="./images/no-poster.jpg" alt="movie poster"/>
       </div>
-      <div>
+      <div class="modal-movie__information">
         <h2 class="modal-movie__title"></h2>
-        <ul>
-          <li>Vote / Votes<span class="modal-movie__vote"></span><span class="modal-movie__votes"></span></li>
-          <li> Popularity<span class="modal-movie__popularity"></span></li>
-          <li>Original Title<span class="modal-movie__original-title"></span></li>
-          <li>Genre<span class="modal-movie__genre"></span></li>
+        <ul class="modal-movie__list">
+          <li class="modal-movie__list-item">Vote / Votes<span class="modal-movie__vote"></span><span class="modal-movie__votes"></span></li>
+          <li class="modal-movie__list-item"> Popularity<span class="modal-movie__popularity"></span></li>
+          <li class="modal-movie__list-item">Original Title<span class="modal-movie__original-title"></span></li>
+          <li class="modal-movie__list-item">Genre<span class="modal-movie__genre"></span></li>
         </ul>
-      </div>
-      <div>
-        <h3>ABOUT</h3>
+
+        <h3 class="modal-mowie__about">ABOUT</h3>
         <p class="modal-movie__text"></p>
-      </div>
+      
+        <div class="modal-movie__button">
         <button class="modal-movie__button--watched" type="button">
           ADD TO WATCHED
         </button>
         <button class="modal-movie__button--queue" type="button">
           ADD TO QUEUE
         </button>
+        </div>
       </div>
-    </div>
   </div>
 </div>
