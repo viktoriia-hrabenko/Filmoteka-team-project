@@ -193,12 +193,26 @@
         border-radius: 2px;
         transform: scale(1, 1);
         transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover,
+        &:focus {
+          color: getColor(accent);
+        }
       }
 
       &:hover:after {
         transform: scale(1, 1);
       }
     }
+  }
+
+  .link {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+        color: getColor(accent);
+      }
   }
 
   @media screen and (max-width: 479px) {
@@ -352,9 +366,9 @@
   margin: 0 auto;
   font-size: 14px;
   color: getColor(error);
-
   display: flex;
-
+  justify-content: center;
+  align-items: center;
   opacity: 1;
   visibility: visible;
 }
