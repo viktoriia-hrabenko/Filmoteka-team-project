@@ -1,13 +1,16 @@
 import { refs } from '../refs/refs';
 import { FetchApiMovies } from '../api/fetchMovies';
-import { showTrendingMovies } from '../../index.js';
-import { addToggleModal } from './modal';
-import { onSearchFormButtonClick } from './searchMovie';
+import { renderMoviesList } from '../templates/renderMovies';
+import { getGenresIdsList } from '../api/getGenresIdsList';
+import { addToggleModal } from '../components/modal';
+
+
 const fetchApiMovies = new FetchApiMovies();
 
-export async function setPagination(page) {
+export async function setPaginationSearch(query, page) {
   refs.paginationNumbers.innerHTML = '';
-  const response = await fetchApiMovies.getTrending(page);
+  const response = await fetchApiMovies.getSearch(query, page);
+  console.log(response)
   const totalNumberOfPages = await response.total_pages;
   let currentPage = await response.page;
   let paginationMArkup = '';
@@ -92,29 +95,40 @@ export async function setPagination(page) {
   handleActiveButton();
 
   paginationButtons.forEach(button => {
-    button.addEventListener('click', event => {
+    button.addEventListener('click', async (event) => {
       if (event.target.classList.contains('pagination-container__button')) {
         let pageNumber = event.target.textContent;
-        showTrendingMovies(pageNumber).then(() => {
-          addToggleModal();
-        });
+        const genresList = await getGenresIdsList();
+        const response = await fetchApiMovies.getSearch(query, pageNumber);
+        const movies = await response.results;
+        renderMoviesList(movies, genresList);
+        setPaginationSearch(query, pageNumber);
+        addToggleModal();
+
+        ;
       } else if (
         event.target.classList.contains('pagination-container__prev-button')
       ) {
         currentPage--;
-        showTrendingMovies(currentPage).then(() => {
-          addToggleModal();
-        });
+        const genresList = await getGenresIdsList();
+        const response = await fetchApiMovies.getSearch(query, currentPage);
+        const movies = await response.results;
+        renderMoviesList(movies, genresList);
+        setPaginationSearch(query, currentPage);
+        addToggleModal();
+
+
       } else if (
         event.target.classList.contains('pagination-container__next-button')
       ) {
         currentPage++;
-        showTrendingMovies(currentPage).then(() => {
-          addToggleModal();
-        });
+        const genresList = await getGenresIdsList();
+        const response = await fetchApiMovies.getSearch(query, currentPage);
+        const movies = await response.results;
+        renderMoviesList(movies, genresList);
+        setPaginationSearch(query, currentPage);
+        addToggleModal();
       }
     });
   });
 }
-
-

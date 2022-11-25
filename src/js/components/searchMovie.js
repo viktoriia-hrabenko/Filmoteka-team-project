@@ -4,6 +4,7 @@ import { FetchApiMovies } from '../api/fetchMovies';
 import { renderMoviesList } from '../templates/renderMovies';
 import { addToggleModal } from '../components/modal';
 import { Loader } from './loader';
+import { setPaginationSearch } from './searchMovie-pagination';
 
 export { onSearchFormButtonClick };
 
@@ -34,8 +35,9 @@ async function onSearchFormButtonClick(element) {
   }
 
   renderMoviesList(movies, genresList);
+  setPaginationSearch(query, 1);
   addToggleModal();
 
-  refs.paginationContainer.innerHTML = '';
+  
   loader.off();
 }

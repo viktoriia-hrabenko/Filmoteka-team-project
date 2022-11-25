@@ -17,7 +17,6 @@ let page = 1;
 
 async function showTrendingMovies(page) {
   const genresList = await getGenresIdsList();
-
   const response = await fetchApiMovies.getTrending(page);
   const movies = await response.results;
 

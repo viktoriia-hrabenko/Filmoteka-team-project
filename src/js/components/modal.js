@@ -21,9 +21,9 @@ export function addToggleModal() {
 
   refsModal.modalClose.addEventListener('click', toggleModal);
 
-  document
-    .querySelector('[data-modal-close]')
-    .addEventListener('click', toggleModal);
+  // document
+  //   .querySelector('[data-modal-close]')
+  //   .addEventListener('click', toggleModal);
 }
 
 
