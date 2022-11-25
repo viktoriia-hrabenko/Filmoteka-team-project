@@ -100,3 +100,72 @@
     height: 44px;
   }
 }
+.modal-movie__poster--img{
+    width: 396px;
+    height: 477.8px;
+    border-radius: 5px;
+
+  @media screen and (max-width:768px) {
+    width: 264px;
+    height: 373.55px;
+  }
+
+  @media screen and (max-width:320px) {
+    width: 240px;
+    height: 356.57px;
+  }
+}
+
+.modal-movie__title{
+    width: 266px;
+    height: 31px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 35px;
+    color:getColor('title');
+  
+  @media screen and (max-width:768px) {
+    font-size: 20px;
+    line-height: 23px;
+  }
+}
+
+.modal-movie__list-item{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color:getColor('modal-text-color');
+}
+
+.modal-mowie__about{
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color:getColor('title');
+}
+
+.modal-movie__content{
+    display: flex;
+    padding: 30px;
+
+  @media screen and (max-width:768px) {
+    padding: 29px;
+  }
+
+  @media screen and (max-width:320px) {
+    padding: 28px;
+  }
+}
+
+.modal-movie__information{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.modal-movie__button{
+  display: flex;
+}
