@@ -21,7 +21,7 @@ const renderMoviesList = (movies, genresList) => {
                 
                     <li class="movie-card__item" id="${
                       movie.id
-                    }" data-modal-open>
+                    }" data-type="${movie.media_type}" data-modal-open>
                         <div class="movie-card__link">
                             <img class="movie-card__image" src="https://image.tmdb.org/t/p/w500${
                               movie.poster_path
