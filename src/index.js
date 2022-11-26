@@ -31,8 +31,16 @@ const showMoviesAndModal = showTrendingMovies(1).then(() => {
 
 export { showTrendingMovies };
 
-// close welcome modal
-setTimeout(() => {
+// close welcome modal and check if user has already seen it
+const is_modal_show = sessionStorage.getItem('alreadyShow');
+if (is_modal_show != 'alredy shown') {
+  setTimeout(() => {
+    document.querySelector('.welcome-overlay').classList.add('off');
+    document.querySelector('.welcome-text').classList.add('off');
+  }, 1000);
+  sessionStorage.setItem('alreadyShow', 'alredy shown');
+} else {
+  loader.on();
   document.querySelector('.welcome-overlay').classList.add('off');
   document.querySelector('.welcome-text').classList.add('off');
-}, 700);
+}

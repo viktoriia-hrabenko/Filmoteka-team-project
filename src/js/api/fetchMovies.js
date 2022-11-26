@@ -3,16 +3,13 @@ import axios from 'axios';
 const apiKey = '92be59e0090ddfe5570b8756c403476a';
 
 export class FetchApiMovies {
-  constructor() {
-    
-  }
+  constructor() {}
 
   async getTrending(page) {
     try {
       axios.defaults.baseURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}`;
       const response = await axios.get(`${axios.defaults.baseURL}`);
       return response.data;
-      
     } catch (error) {
       console.log('Opss, something went wrong');
     }

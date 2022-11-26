@@ -23,8 +23,6 @@ async function onSearchFormButtonClick(element) {
   const response = await fetchApiMovies.getSearch(query, 1);
   const movies = await response.results;
 
-  refs.formInput.value = '';
-
   if (movies.length === 0) {
     loader.off();
     refs.notification.classList.remove('off');
@@ -38,6 +36,5 @@ async function onSearchFormButtonClick(element) {
   setPaginationSearch(query, 1);
   addToggleModal();
 
-  
   loader.off();
 }

@@ -8,30 +8,49 @@ import { removeFromLibrary } from '../library/localStorage';
 import { getAllLibraryMovies } from '../library/helper';
 import { Loader } from './loader';
 
+const loader = new Loader();
+const fetchApiMovies = new FetchApiMovies();
 
 export function addToggleModal() {
   const refsModal = {
+    modalOpen: document.querySelectorAll('[data-modal-open]'),
     modalClose: document.querySelector('[data-modal-close]'),
-    modalData: document.querySelector('.modal-movie__backdrop'),
+    modalBackdrop: document.querySelector('.modal-movie__backdrop'),
   };
 
-  function toggleModal() {
-    refsModal.modalData.classList.toggle('modal-movie__backdrop--is-hidden');
+  function addModalListener() {
+    refsModal.modalBackdrop.classList.remove(
+      'modal-movie__backdrop--is-hidden'
+    );
+    window.addEventListener('keydown', onEscKeyPress);
+    // loader.on();
   }
 
-  document.querySelectorAll('[data-modal-open]').forEach(modal => {
-    modal.addEventListener('click', toggleModal);
+  function removeModalListener() {
+    refsModal.modalBackdrop.classList.add('modal-movie__backdrop--is-hidden');
+  }
+
+  function onBackdropClick(event) {
+    if (event.target != event.currentTarget) {
+      return;
+    }
+    removeModalListener();
+  }
+
+  function onEscKeyPress(event) {
+    if (event.code === 'Escape') {
+      removeModalListener();
+    }
+  }
+
+  refsModal.modalOpen.forEach(modal => {
+    modal.addEventListener('click', addModalListener);
   });
 
-  refsModal.modalClose.addEventListener('click', toggleModal);
+  refsModal.modalClose.addEventListener('click', removeModalListener);
 
-//   refsModal.modalClose.addEventListener('keydown', function (event) {
-//   if (event.key === 'Escape') {
-//     refsModal.modalClose.classList.add('modal-movie__backdrop--is-hidden');
-//   }
-// });
+  refsModal.modalBackdrop.addEventListener('click', onBackdropClick);
 }
-
 
 const modalMoviePoster = document.querySelector('.modal-movie__poster--img');
 
@@ -40,62 +59,65 @@ const modalMovieTitle = document.querySelector('.modal-movie__title');
 const modalMovieVote = document.querySelector('.modal-movie__vote');
 const modalMovieVotes = document.querySelector('.modal-movie__votes');
 const modalMoviePopularity = document.querySelector('.modal-movie__popularity');
-const modalMovieOriginalTitle = document.querySelector('.modal-movie__original-title');
+const modalMovieOriginalTitle = document.querySelector(
+  '.modal-movie__original-title'
+);
 const modalMovieGenre = document.querySelector('.modal-movie__genre');
 
 const modalMovieDescription = document.querySelector('.modal-movie__text');
 
-const modalMovieButtonWatched = document.querySelector('.modal-movie__button--watched');
-const modalMovieButtonQueued = document.querySelector('.modal-movie__button--queue');
-
-
+const modalMovieButtonWatched = document.querySelector(
+  '.modal-movie__button--watched'
+);
+const modalMovieButtonQueued = document.querySelector(
+  '.modal-movie__button--queue'
+);
 
 const createModalMovie = document.querySelectorAll('.movie-card__item');
 
-createModalMovie.forEach (movie => {
-    movie.addEventListener('click', event => {
+createModalMovie.forEach(movie => {
+  movie.addEventListener('click', event => {
+    modalMoviePoster.src = '';
+    modalMovieTitle.innerHTML = '';
+    modalMovieVote.innerHTML = '';
+    modalMovieVotes.innerHTML = '';
+    modalMoviePopularity.innerHTML = '';
+    modalMovieOriginalTitle.innerHTML = '';
+    modalMovieGenre.innerHTML = '';
+    modalMovieDescription.innerHTML = '';
 
-            modalMoviePoster.src = '';
-            modalMovieTitle.innerHTML = '';
-            modalMovieVote.innerHTML = '';
-            modalMovieVotes.innerHTML = '';
-            modalMoviePopularity.innerHTML = '';
-            modalMovieOriginalTitle.innerHTML = '';
-            modalMovieGenre.innerHTML = '';
-            modalMovieDescription.innerHTML = '';
+    modalMovieButtonWatched.dataset.id = '';
+    modalMovieButtonQueued.dataset.id = '';
 
-            modalMovieButtonWatched.dataset.id = '';
-            modalMovieButtonQueued.dataset.id = '';
+    event.preventDefault();
 
-      event.preventDefault();
+    const movieId = movie.dataset.id;
+    const movieData = getMovieDetails(movieId);
 
-      const movieId = movie.dataset.id;
-      const movieData = getMovieDetails(movieId);
-      
-      MovieModalMurkup(movieData);
-    });
-  
-  
+    MovieModalMurkup(movieData);
+    loader.off();
+  });
+
   //----------DODAĆ DO BIBLIOTEKI UŻYTKOWNIKA------------//
   const movieDetails = FetchApiMovies.getMovieDetails(id);
   console.log(movieDetails);
   let onWatched = false;
   let onQueue = false;
-  
+
   load('watchedList')?.forEach(movie => {
     if (movie.id == id) {
       onWatched = true;
     }
   });
-  
+
   load('queueList')?.forEach(movie => {
     if (movie.id == id) {
       onQueue = true;
     }
   });
-  
-   let watchedBtn = document.querySelector('modal-movie__button--watched');
-   let queueBtn = document.querySelector('modal-movie__button--queue');
+
+  let watchedBtn = document.querySelector('modal-movie__button--watched');
+  let queueBtn = document.querySelector('modal-movie__button--queue');
 
   if (onWatched) {
     watchedBtn.innerHTML = 'On List';
@@ -126,8 +148,6 @@ createModalMovie.forEach (movie => {
     }
   };
 
-
-
   watchedBtn.addEventListener('click', () => {
     checkIfOnList(watchedBtn, 'watchedList', 'watched');
     if (
@@ -149,25 +169,32 @@ createModalMovie.forEach (movie => {
     }
   });
 
-//--------------------------------------------------------------------//
+  //--------------------------------------------------------------------//
+});
 
-  })
-  
+function MovieModalMurkup({
+  id,
+  poster_path,
+  title,
+  original_title,
+  popularity,
+  overview,
+  genres,
+  vote_average,
+  vote_count,
+}) {
+  return;
+  modalMoviePoster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+  modalMovieTitle.innerHTML = `${movie.title}`;
+  modalMovieVote.innerHTML = `${movie.vote_average}`;
+  modalMovieVotes.innerHTML = `${movie.vote_count}`;
+  modalMoviePopularity.innerHTML = `${movie.popularity}`;
+  modalMovieOriginalTitle.innerHTML = `${movie.original_title}`;
+  modalMovieGenre.innerHTML = `${movie.genres
+    .map(genre => genre.name)
+    .join(', ')}`;
+  modalMovieDescription.innerHTML = `${movie.overview}`;
 
-  function MovieModalMurkup ({id, poster_path, title, original_title, popularity, overview, genres, vote_average, vote_count,}) {
-    return
-        modalMoviePoster.src=`https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-        modalMovieTitle.innerHTML = `${movie.title}`;
-        modalMovieVote.innerHTML = `${movie.vote_average}`;
-        modalMovieVotes.innerHTML = `${movie.vote_count}`;
-        modalMoviePopularity.innerHTML = `${movie.popularity}`;
-        modalMovieOriginalTitle.innerHTML = `${movie.original_title}`;
-        modalMovieGenre.innerHTML = `${movie.genres.map(genre => genre.name).join(', ')}`;
-        modalMovieDescription.innerHTML = `${movie.overview}`;
-  
-        modalMovieButtonWatched.dataset.id = movie.id;
-        modalMovieButtonQueued.dataset.id = movie.id;
-  };
-
-
-
+  modalMovieButtonWatched.dataset.id = movie.id;
+  modalMovieButtonQueued.dataset.id = movie.id;
+}
