@@ -195,7 +195,7 @@
   .info__about-item {
     font-size: 12px;
     color: getColor('accent');
-    font-weight: 500px;
+    font-weight: 500;
     width: 280px;
     padding: 0px 5px 5px 5px;
     display: inline;
@@ -219,6 +219,7 @@
       border-radius: 0.4rem;
       padding: 2px 9px;
       margin-left: 4px;
+      font-weight: 700;
     }
   }
 }

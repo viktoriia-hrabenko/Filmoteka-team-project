@@ -9,7 +9,6 @@ export class FetchApiMovies {
     try {
       axios.defaults.baseURL = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}`;
       const response = await axios.get(`${axios.defaults.baseURL}`);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       console.log('Opss, something went wrong');
