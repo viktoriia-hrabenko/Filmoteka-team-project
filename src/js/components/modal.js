@@ -9,6 +9,7 @@ import { getAllLibraryMovies } from '../library/helper';
 import { Loader } from './loader';
 
 const loader = new Loader();
+const fetchApiMovies = new FetchApiMovies();
 
 export function addToggleModal() {
   const refsModal = {
@@ -94,7 +95,6 @@ createModalMovie.forEach(movie => {
     const movieData = getMovieDetails(movieId);
 
     MovieModalMurkup(movieData);
-
     loader.off();
   });
 
@@ -183,6 +183,7 @@ function MovieModalMurkup({
   vote_average,
   vote_count,
 }) {
+  return;
   modalMoviePoster.src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
   modalMovieTitle.innerHTML = `${movie.title}`;
   modalMovieVote.innerHTML = `${movie.vote_average}`;
