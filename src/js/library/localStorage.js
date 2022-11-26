@@ -30,42 +30,40 @@ export const remove = key => {
 
 
 
-// export const addToLibrary = (movieId, type, listType = 'watchedList') => {
-//   const libraryList = load(listType);
-//   if (libraryList == undefined) {
-//     let tempWatchedList = [];
-//     tempWatchedList.push({
-//       movieId,
-//       type,
-//     });
-//     return save(listType, tempWatchedList);
-//   }
+export const addToLibrary = (movieId, listType = 'watchedList') => {
+  const libraryList = load(listType);
+  if (libraryList == undefined) {
+    let tempWatchedList = [];
+    tempWatchedList.push({
+      movieId
+    });
+    return save(listType, tempWatchedList);
+  }
 
-//   let alreadyInList = false;
-//   libraryList.forEach(movie => {
-//     if (movie.id == movieId && movie.type === type) {
-//       alreadyInList = true;
-//     }
-//   });
+  let alreadyInList = false;
+  libraryList.forEach(movie => {
+    if (movie.id == movieId) {
+      alreadyInList = true;
+    }
+  });
 
-//   if (alreadyInList) return alert('Movie already on the list.');
+  if (alreadyInList) return alert('Movie already on the list.');
 
-//   libraryList.push({
-//     movieId,
-//     type,
-//   });
-//   return save(listType, libraryList);
-// };
+  libraryList.push({
+    movieId
+  });
+  return save(listType, libraryList);
+};
 
 
-// export const removeFromLibrary = (movieId, type, listType = 'watchedList') => {
-//   let libraryList = load(listType);
+export const removeFromLibrary = (movieId, listType = 'watchedList') => {
+  let libraryList = load(listType);
 
-//   libraryList = libraryList.filter(movie => {
-//     if (movie.id != movieId) {
-//       return movie;
-//     }
-//   });
+  libraryList = libraryList.filter(movie => {
+    if (movie.id != movieId) {
+      return movie;
+    }
+  });
 
-//   return save(listType, libraryList);
-// };
+  return save(listType, libraryList);
+};

@@ -14,16 +14,15 @@ export const getAllLibraryMovies = async (libraryList, listType) => {
 
   if (libraryList != undefined) {
     for (const movie of libraryList) {
-      let response = await FetchApiMovies.getMovieDetails(movie.movieId, movie.type).then(res => res);
+      let response = await FetchApiMovies.getMovieDetails(movie_id).then(res => res);
       response = {
         ...response,
-        genre_ids: [...response.genres.map(genre => genre.id)],
-        media_type: movie.type,
+        genre_ids: [...response.genres.map(genre => genre.id)]
       };
       tempObj.push(response);
     }
     moviesList = [...tempObj];
-      await renderMoviesList(moviesList);
-      addModalListenerFunction();
+    renderMoviesList(moviesList);
+   //funlcja z modal.js 
   }
 };

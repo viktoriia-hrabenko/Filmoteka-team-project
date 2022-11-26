@@ -2,6 +2,10 @@ import { refs } from '../refs/refs';
 import { getGenresIdsList } from '../api/getGenresIdsList';
 import { FetchApiMovies } from '../api/fetchMovies';
 import { renderMoviesList } from '../templates/renderMovies';
+import { load } from '../library/localStorage';
+import { addToLibrary } from '../library/localStorage';
+import { removeFromLibrary } from '../library/localStorage';
+import { getAllLibraryMovies } from '../library/helper';
 import { Loader } from './loader';
 
 
@@ -21,9 +25,11 @@ export function addToggleModal() {
 
   refsModal.modalClose.addEventListener('click', toggleModal);
 
-  // document
-  //   .querySelector('[data-modal-close]')
-  //   .addEventListener('click', toggleModal);
+//   refsModal.modalClose.addEventListener('keydown', function (event) {
+//   if (event.key === 'Escape') {
+//     refsModal.modalClose.classList.add('modal-movie__backdrop--is-hidden');
+//   }
+// });
 }
 
 
@@ -42,7 +48,10 @@ const modalMovieDescription = document.querySelector('.modal-movie__text');
 const modalMovieButtonWatched = document.querySelector('.modal-movie__button--watched');
 const modalMovieButtonQueued = document.querySelector('.modal-movie__button--queue');
 
+
+
 const createModalMovie = document.querySelectorAll('.movie-card__item');
+
 createModalMovie.forEach (movie => {
     movie.addEventListener('click', event => {
 
@@ -65,6 +74,83 @@ createModalMovie.forEach (movie => {
       
       MovieModalMurkup(movieData);
     });
+  
+  
+  //----------DODAĆ DO BIBLIOTEKI UŻYTKOWNIKA------------//
+  const movieDetails = FetchApiMovies.getMovieDetails(id);
+  console.log(movieDetails);
+  let onWatched = false;
+  let onQueue = false;
+  
+  load('watchedList')?.forEach(movie => {
+    if (movie.id == id) {
+      onWatched = true;
+    }
+  });
+  
+  load('queueList')?.forEach(movie => {
+    if (movie.id == id) {
+      onQueue = true;
+    }
+  });
+  
+   let watchedBtn = document.querySelector('modal-movie__button--watched');
+   let queueBtn = document.querySelector('modal-movie__button--queue');
+
+  if (onWatched) {
+    watchedBtn.innerHTML = 'On List';
+  }
+  if (onQueue) {
+    queueBtn.innerHTML = 'On List';
+  }
+
+  const checkIfOnList = (button, listType, listTypeText) => {
+    let watched;
+    if (listTypeText == undefined) return;
+    if (listTypeText === 'watched') {
+      watched = onWatched;
+    } else if (listTypeText === 'queue') {
+      watched = onQueue;
+    }
+    if (watched) {
+      removeFromLibrary(id, listType);
+      button.innerHTML = `Add to ${listTypeText}`;
+    } else {
+      addToLibrary(id, listType);
+      button.innerHTML = `Added`;
+    }
+    if (listTypeText === 'watched') {
+      onWatched = !onWatched;
+    } else if (listTypeText === 'queue') {
+      onQueue = !onQueue;
+    }
+  };
+
+
+
+  watchedBtn.addEventListener('click', () => {
+    checkIfOnList(watchedBtn, 'watchedList', 'watched');
+    if (
+      document.location.href.includes('library') &&
+      refs.moviesList.dataset.listtype === 'watched'
+    ) {
+      let tempLibraryList = load('watchedList');
+      getAllLibraryMovies(tempLibraryList, 'watchedList');
+    }
+  });
+  queueBtn.addEventListener('click', () => {
+    checkIfOnList(queueBtn, 'queueList', 'queue');
+    if (
+      document.location.href.includes('library') &&
+      refs.moviesList.dataset.listtype === 'queue'
+    ) {
+      let tempLibraryList = load('queueList');
+      getAllLibraryMovies(tempLibraryList, 'queueList');
+    }
+  });
+
+//--------------------------------------------------------------------//
+
   })
   
 
