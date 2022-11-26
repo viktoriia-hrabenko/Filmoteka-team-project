@@ -45,7 +45,7 @@
     display: inline;
     position: relative;
 
-    &:last-child::after {
+    &:nth-child(3)::before {
       content: '';
       position: absolute;
       width: 40%;
@@ -54,6 +54,14 @@
       bottom: 28px;
       left: -10px;
       transform: rotate(90deg);
+    }
+
+    &--color-reverse {
+      background-color: getColor('accent');
+      color: getColor('header-text-color');
+      border-radius: 0.4rem;
+      padding: 2px 9px;
+      margin-left: 4px;
     }
   }
 }
@@ -114,16 +122,25 @@
     padding: 0px 5px 15px 5px;
     display: inline;
     position: relative;
+    line-height: 1.7;
 
-    &:last-child::after {
+    &:nth-child(3)::before {
       content: '';
       position: absolute;
       width: 40%;
       height: 1px;
       background-color: getColor('accent');
-      bottom: 21px;
-      left: -9px;
+      bottom: 22px;
+      left: -8px;
       transform: rotate(90deg);
+    }
+
+    &--color-reverse {
+      background-color: getColor('accent');
+      color: getColor('header-text-color');
+      border-radius: 0.4rem;
+      padding: 2px 9px;
+      margin-left: 4px;
     }
   }
 }
@@ -169,7 +186,7 @@
 
   .info__item {
     font-size: 12px;
-    font-weight: 500px;
+    font-weight: 500;
     text-transform: uppercase;
     color: getColor('title');
     padding: 10px 5px 5px 5px;
@@ -180,19 +197,28 @@
     color: getColor('accent');
     font-weight: 500px;
     width: 280px;
-    padding: 0px 10px 5px 5px;
+    padding: 0px 5px 5px 5px;
     display: inline;
     position: relative;
+    line-height: 1.9;
 
-    &:last-child::after {
+    &:nth-child(3)::before {
       content: '';
       position: absolute;
       width: 40%;
       height: 1px;
       background-color: getColor('accent');
       bottom: 11px;
-      left: -13px;
+      left: -8px;
       transform: rotate(90deg);
+    }
+
+    &--color-reverse {
+      background-color: getColor('accent');
+      color: getColor('header-text-color');
+      border-radius: 0.4rem;
+      padding: 2px 9px;
+      margin-left: 4px;
     }
   }
 }
