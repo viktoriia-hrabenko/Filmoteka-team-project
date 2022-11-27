@@ -93,30 +93,23 @@ createModalMovie.forEach(movie => {
     loader.off();
   });
 
- /*
-  //----------DODAĆ DO BIBLIOTEKI UŻYTKOWNIKA------------//
-  const movieDetails = fetchApiMovies.getMovieDetails(id);
-  movieDetails.then(value => {
-    MovieModalMurkup(value);
-  });
-  
   let onWatched = false;
   let onQueue = false;
-
-  load('watchedList')?.forEach(movie => {
-    if (movie.id == id) {
+  
+  load('watchedList')?.forEach(movies => {
+    if (movies.id == movie.id) {
       onWatched = true;
     }
   });
 
-  load('queueList')?.forEach(movie => {
-    if (movie.id == id) {
+  load('queueList')?.forEach(movies => {
+    if (movies.id == movie.id) {
       onQueue = true;
     }
   });
 
-  let watchedBtn = document.querySelector('modal-movie__button--watched');
-  let queueBtn = document.querySelector('modal-movie__button--queue');
+  let watchedBtn = document.querySelector('.modal-movie__button--watched');
+  let queueBtn = document.querySelector('.modal-movie__button--queue');
 
   if (onWatched) {
     watchedBtn.innerHTML = 'On List';
@@ -134,10 +127,10 @@ createModalMovie.forEach(movie => {
       watched = onQueue;
     }
     if (watched) {
-      removeFromLibrary(id, listType);
+      removeFromLibrary(movie.id, listType);
       button.innerHTML = `Add to ${listTypeText}`;
     } else {
-      addToLibrary(id, listType);
+      addToLibrary(movie.id, listType);
       button.innerHTML = `Added`;
     }
     if (listTypeText === 'watched') {
@@ -167,9 +160,6 @@ createModalMovie.forEach(movie => {
       getAllLibraryMovies(tempLibraryList, 'queueList');
     }
   });
-
-  //--------------------------------------------------------------------//
-  */
 
 });
 }

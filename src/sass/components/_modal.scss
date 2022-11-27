@@ -66,6 +66,7 @@
   font-size: 12px;
   line-height: 16px;
   color:getColor('header-text-color');
+  text-transform: uppercase;
 
   @media screen and (max-width:768px) {
     width: 125.03px;
@@ -89,6 +90,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  text-transform: uppercase;
 
   @media screen and (max-width:768px) {
     width: 125.03px;
