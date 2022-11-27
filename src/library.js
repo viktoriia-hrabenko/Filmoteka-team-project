@@ -6,6 +6,8 @@ const watchedButton = document.querySelector('[js-btn-watched]');
 const queueButton = document.querySelector('[js-btn-queue]');
 
 let libraryList = load('watchedList');
+import './js/templates/theme';
+import './js/templates/footer';
 
 watchedButton.addEventListener('click', () => {
   queueButton.classList.remove('library__btn--selected');
