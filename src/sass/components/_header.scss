@@ -210,7 +210,7 @@
     }
   }
 
-  @media screen and (max-width: 479px) {
+  @media screen and (max-width: 379px) {
     .nav {
       &__title {
         display: none;
@@ -226,7 +226,7 @@
     }
 
     .header__search-form {
-      width: 336px;
+      width: 100%;
       align-items: center;
     }
   }
