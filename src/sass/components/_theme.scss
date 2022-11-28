@@ -10,10 +10,18 @@
     background-color: var(--bg-color);
   }
 
-
+.theme {
+  display: flex;
+  float: right;
+  text-transform: uppercase;
+}
+.theme__item {
+  display: inline;
+  margin-top: 20px;
+  margin-right: 5px;
+}
   .theme-switch-wr {
     align-items: center;
-    margin-left: 840px;
   }
   .theme-switch {
     display: inline-block;
@@ -62,10 +70,10 @@
       }
     }
 
-    .info__item {
-      color: var(--p-color);
-    }
 
-    .pagination-container__button {  
+    .pagination-container__button,
+    .pagination-container__first-dot-button,
+    .pagination-container__last-dot-button,
+    .info__item {  
       color: var(--p-color);
     }

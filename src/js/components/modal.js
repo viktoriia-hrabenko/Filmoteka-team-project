@@ -8,6 +8,8 @@ import { removeFromLibrary } from '../library/localStorage';
 import { getAllLibraryMovies } from '../library/helper';
 import { Loader } from './loader';
 
+const loader = new Loader();
+const fetchApiMovies = new FetchApiMovies();
 
 const loader = new Loader();
 const fetchApiMovies = new FetchApiMovies();
@@ -54,12 +56,15 @@ export function addToggleModal() {
   MovieModalCreate();
 };
 
+
 const modalMoviePoster = document.querySelector('.modal-movie__poster--img');
 const modalMovieTitle = document.querySelector('.modal-movie__title');
 const modalMovieVote = document.querySelector('.modal-movie__vote');
 const modalMovieVotes = document.querySelector('.modal-movie__votes');
 const modalMoviePopularity = document.querySelector('.modal-movie__popularity');
-const modalMovieOriginalTitle = document.querySelector('.modal-movie__original-title');
+const modalMovieOriginalTitle = document.querySelector(
+  '.modal-movie__original-title'
+);
 const modalMovieGenre = document.querySelector('.modal-movie__genre');
 const modalMovieDescription = document.querySelector('.modal-movie__text');
 const modalMovieButtonWatched = document.querySelector('.modal-movie__button--watched');
@@ -98,18 +103,22 @@ createModalMovie.forEach(movie => {
   
   load('watchedList')?.forEach(movies => {
     if (movies.id == movie.id) {
+
       onWatched = true;
     }
   });
 
+
   load('queueList')?.forEach(movies => {
     if (movies.id == movie.id) {
+
       onQueue = true;
     }
   });
 
   let watchedBtn = document.querySelector('.modal-movie__button--watched');
   let queueBtn = document.querySelector('.modal-movie__button--queue');
+
 
   if (onWatched) {
     watchedBtn.innerHTML = 'On List';
@@ -160,9 +169,9 @@ createModalMovie.forEach(movie => {
       getAllLibraryMovies(tempLibraryList, 'queueList');
     }
   });
-
 });
 }
+
 function MovieModalMurkup({
   id,
   poster_path,
@@ -186,4 +195,5 @@ function MovieModalMurkup({
   modalMovieButtonWatched.dataset.id = id;
   modalMovieButtonQueued.dataset.id = id;
 };
+
 
