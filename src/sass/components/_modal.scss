@@ -177,14 +177,10 @@
       width: 90px;
     }
 
-    //@media screen and (max-width:320px) {
-    // padding: 28px;
-    //}
   }
 
   &--parm {
     display: inline-flex;
-    margin-left: 32px;
 
     @media screen and (max-width: 768px) {
       width: 120px;
@@ -196,7 +192,6 @@
   color: getColor('header-text-color');
   width: 36px;
   height: 16px;
-  margin-left: 32px;
   padding: 2px 6px;
   padding-left: 12px;
   padding-right: 12px;
@@ -208,16 +203,13 @@
   color: getColor('title');
   width: 36px;
   height: 16px;
-  padding: 2px 6px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-left: 2px;
   background-color: getColor('footer-bacground-color');
   border-radius: 5px;
 }
 
 .modal-movie__popularity {
   color: getColor('title');
-  margin-left: 32px;
 }
 
 .modal-movie__original-title {
@@ -262,6 +254,10 @@
   display: flex;
   flex-direction: column;
   padding-left: 30px;
+
+  @media screen and (max-width: 320px) {
+    padding-left: 0px;
+  }
   
 }
 
@@ -272,11 +268,15 @@
 .modal-movie__poster {
   padding: 14px;
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 768px) {
     padding-left: 0px;
     padding-right: 0px;
     padding-top: 18px;
     padding-bottom: 14px;
+  }
+
+  @media screen and (max-width: 320px) {
+    padding-top: 28px;
   }
 }
 
