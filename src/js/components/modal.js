@@ -134,14 +134,22 @@ function MovieModalCreate() {
       if (watched) {
         removeFromLibrary(movie.id, listType);
         button.innerHTML = `Add to ${listTypeText}`;
+        queueBtn.disabled = false;
+        watchedBtn.disabled = false;
       } else {
         addToLibrary(movie.id, listType);
         button.innerHTML = `Added`;
+        button.style.color= "#8C8C8C";
+        
       }
       if (listTypeText === 'watched') {
         onWatched = !onWatched;
+        watchedBtn.disabled = true;
+        queueBtn.disabled = true;
       } else if (listTypeText === 'queue') {
         onQueue = !onQueue;
+        queueBtn.disabled = true;
+        watchedBtn.disabled = true;
       }
     };
 
