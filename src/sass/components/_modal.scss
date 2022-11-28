@@ -131,7 +131,7 @@
 }
 
 .modal-movie__poster--img{
-    width: 340px;
+    width: 330px;
     height: 477.8px;
     border-radius: 5px;
 
@@ -167,7 +167,7 @@
   font-size: 12px;
   line-height: 16px;
   color: getColor('modal-text-color');
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 
   &--text {
     width: 110px;
@@ -184,6 +184,7 @@
 
   &--parm {
     display: inline-flex;
+    margin-left: 32px;
 
     @media screen and (max-width: 768px) {
       width: 120px;
@@ -195,7 +196,10 @@
   color: getColor('header-text-color');
   width: 36px;
   height: 16px;
+  margin-left: 32px;
   padding: 2px 6px;
+  padding-left: 12px;
+  padding-right: 12px;
   background-color: getColor('accent');
   border-radius: 5px;
 }
@@ -204,13 +208,16 @@
   color: getColor('title');
   width: 36px;
   height: 16px;
-  padding: 1px;
+  padding: 2px 6px;
+  padding-left: 12px;
+  padding-right: 12px;
   background-color: getColor('footer-bacground-color');
   border-radius: 5px;
 }
 
 .modal-movie__popularity {
   color: getColor('title');
+  margin-left: 32px;
 }
 
 .modal-movie__original-title {
@@ -222,7 +229,7 @@
   color: getColor('title');
 }
 
-.modal-mowie__about {
+.modal-movie__about {
   font-family: 'Roboto';
   font-weight: 700;
   font-size: 12px;
@@ -254,6 +261,8 @@
 .modal-movie__information {
   display: flex;
   flex-direction: column;
+  padding-left: 30px;
+  
 }
 
 .modal-movie__button {
