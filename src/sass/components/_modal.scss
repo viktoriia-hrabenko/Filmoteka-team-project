@@ -17,26 +17,27 @@
 }
 
 .modal-movie {
-  height: 568px;
-  width: 882px;
+  height: 958px;
+  width: 280px;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin: auto;
+
   border-radius: 0.5rem;
   background-color: getColor('background-modal');
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     height: 562px;
     width: 618px;
   }
 
-  @media screen and (max-width: 320px) {
-    height: 958px;
-    width: 280px;
+  @media screen and (min-width: 1200px) {
+    height: 568px;
+    width: 882px;
     left: 0;
     right: 0;
     top: 20px;
@@ -57,7 +58,7 @@
 }
 
 .modal-movie__button--watched {
-  width: 136px;
+    width: 112.58px;
     height: 44px;
     border-radius: 5px;
     cursor: pointer;
@@ -82,19 +83,19 @@
       transform: scale(1.03);
     }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px)  {
     width: 125.03px;
     height: 44px;
   }
 
-  @media screen and (max-width: 320px) {
-    width: 112.58px;
+  @media screen and (min-width: 1200px) {
+    width: 136px;
     height: 44px;
   }
 }
 
 .modal-movie__button--queue {
-  width: 136px;
+  width: 112.58px;
   height: 44px;
   border-radius: 5px;
   cursor: pointer;
@@ -119,45 +120,45 @@
       transform: scale(1.03);
     }
 
-  @media screen and (max-width:768px) {
+  @media screen and (min-width:768px){
     width: 125.03px;
     height: 44px;
   }
 
-  @media screen and (max-width: 320px) {
-    width: 112.58px;
-    height: 44px;
+  @media screen and (min-width: 1200px) {
+    width: 136px;
+    height: 44px; 
   }
 }
 
 .modal-movie__poster--img{
-    width: 330px;
-    height: 477.8px;
+    width: 240px;
+    height: 356.57px;
     border-radius: 5px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 264px;
     height: 373.55px;
   }
 
-  @media screen and (max-width: 320px) {
-    width: 240px;
-    height: 356.57px;
+  @media screen and (min-width: 1200px){
+    width: 330px;
+    height: 477.8px;
   }
 }
 
 .modal-movie__title {
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: 30px;
-  line-height: 35px;
+  font-size: 20px;
+  line-height: 23px;
   color: getColor('title');
   text-transform: uppercase;
   display: block;
 
-  @media screen and (max-width: 768px) {
-    font-size: 20px;
-    line-height: 23px;
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+    line-height: 35px;
   }
 }
 
@@ -170,20 +171,25 @@
   padding-bottom: 10px;
 
   &--text {
-    width: 110px;
+    width: 90px;
     display: inline-flex;
 
-    @media screen and (max-width: 768px) {
-      width: 90px;
+    @media screen and (min-width: 768px){
+      width: 110px;
     }
 
   }
 
   &--parm {
     display: inline-flex;
+    width: 120px;
 
-    @media screen and (max-width: 768px) {
-      width: 120px;
+    @media screen and (min-width: 768px){
+      width: 160px;
+    }
+
+    @media screen and (min-width: 1200px) {
+     width:auto;
     }
   }
 }
@@ -238,25 +244,26 @@
 
 .modal-movie__content {
   display: flex;
-  padding: 30px;
+  flex-wrap: wrap;
+  padding: 20px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding: 29px;
+    flex-wrap:nowrap;
   }
 
-  @media screen and (max-width: 320px) {
-    padding: 21px;
-    flex-wrap: wrap;
+  @media screen and (min-width: 1200px)  {
+    padding: 30px;
   }
 }
 
 .modal-movie__information {
   display: flex;
   flex-direction: column;
-  padding-left: 30px;
+  padding-left: 0px;
 
-  @media screen and (max-width: 320px) {
-    padding-left: 0px;
+  @media screen and (min-width: 768px){
+    padding-left: 20px;
   }
   
 }
@@ -266,17 +273,17 @@
 }
 
 .modal-movie__poster {
-  padding: 14px;
+  padding-top: 28px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
     padding-left: 0px;
     padding-right: 0px;
     padding-top: 18px;
     padding-bottom: 14px;
   }
 
-  @media screen and (max-width: 320px) {
-    padding-top: 28px;
+  @media screen and (min-width: 1200px) {
+    padding: 14px;
   }
 }
 
