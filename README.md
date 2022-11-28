@@ -1,4 +1,4 @@
-##🎥 Filmoteka
+### 🎥 Filmoteka
 
 ---
 
@@ -10,10 +10,10 @@
 
 Team:
 
-- Bolek (Team Leader)
-- Angelika (Scrum Master)
-- Jakub (Developer)
-- Karolina (Developer)
-- Krzysiek (Developer)
-- Vika (Developer)
-- Janek (Developer)
+- <a href="https://github.com/BoloMasta" target="_blank">Bolek</a> (Team Leader)
+- <a href="https://github.com/AngelikaGralewska" target="_blank">Angelika</a> (Scrum Master)
+- <a href="https://github.com/KubaTurek" target="_blank">Jakub</a> (Developer)
+- <a href="https://github.com/KarolinaZinczuk" target="_blank">Karolina</a> (Developer)
+- <a href="https://github.com/" target="_blank">Krzysiek</a> (Developer)
+- <a href="https://github.com/viktoriia-hrabenko" target="_blank">Vika</a> (Developer)
+- <a href="https://github.com/jslonina" target="_blank">Janek</a> (Developer)
