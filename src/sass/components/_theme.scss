@@ -3,10 +3,16 @@
     --p-color: #000;
   }
   [data-theme='dark'] {
-    --bg-color: rgba(0, 0, 0, 0.93);
+    --bg-color: rgb(48, 45, 45);
     --p-color: #fff;
   }
   body {
+    background-color: var(--bg-color);
+  }
+  
+  .modal-movie__button--close,
+  .modal-movie,
+  .footer{
     background-color: var(--bg-color);
   }
 
@@ -76,6 +82,13 @@
     .pagination-container__button,
     .pagination-container__first-dot-button,
     .pagination-container__last-dot-button,
-    .info__item {  
+    .info__item,
+    .modal-movie__title,
+    .modal-movie__popularity,
+    .modal-movie__original-title,
+    .modal-movie__genre,
+    .modal-movie__about,
+    .footer__container,
+    .modal-movie__text{  
       color: var(--p-color);
     }
