@@ -11,8 +11,8 @@ import { Loader } from './loader';
 const loader = new Loader();
 const fetchApiMovies = new FetchApiMovies();
 
-const loader = new Loader();
-const fetchApiMovies = new FetchApiMovies();
+//const loader = new Loader();
+//const fetchApiMovies = new FetchApiMovies();
 
 export function addToggleModal() {
   const refsModal = {
