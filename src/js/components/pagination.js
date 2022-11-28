@@ -3,7 +3,14 @@ import { FetchApiMovies } from '../api/fetchMovies';
 import { showTrendingMovies } from '../../index.js';
 import { addToggleModal } from './modal';
 import { onSearchFormButtonClick } from './searchMovie';
+import { Loader } from './loader';
 const fetchApiMovies = new FetchApiMovies();
+const loader = new Loader();
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
 
 export async function setPagination(page) {
   refs.paginationNumbers.innerHTML = '';
@@ -94,23 +101,33 @@ export async function setPagination(page) {
   paginationButtons.forEach(button => {
     button.addEventListener('click', event => {
       if (event.target.classList.contains('pagination-container__button')) {
+        topFunction();
+        loader.on();
         let pageNumber = event.target.textContent;
         showTrendingMovies(pageNumber).then(() => {
           addToggleModal();
+          loader.off();
+          
         });
       } else if (
         event.target.classList.contains('pagination-container__prev-button')
       ) {
+        topFunction();
+        loader.on();
         currentPage--;
         showTrendingMovies(currentPage).then(() => {
           addToggleModal();
+          loader.off();
         });
       } else if (
         event.target.classList.contains('pagination-container__next-button')
       ) {
+        topFunction();
+        loader.on();
         currentPage++;
         showTrendingMovies(currentPage).then(() => {
           addToggleModal();
+          loader.off();
         });
       }
     });

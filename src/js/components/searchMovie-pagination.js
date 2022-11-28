@@ -3,6 +3,13 @@ import { FetchApiMovies } from '../api/fetchMovies';
 import { renderMoviesList } from '../templates/renderMovies';
 import { getGenresIdsList } from '../api/getGenresIdsList';
 import { addToggleModal } from '../components/modal';
+import { Loader } from './loader';
+const loader = new Loader();
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
 
 
 const fetchApiMovies = new FetchApiMovies();
@@ -97,6 +104,8 @@ export async function setPaginationSearch(query, page) {
   paginationButtons.forEach(button => {
     button.addEventListener('click', async (event) => {
       if (event.target.classList.contains('pagination-container__button')) {
+        topFunction();
+        loader.on();
         let pageNumber = event.target.textContent;
         const genresList = await getGenresIdsList();
         const response = await fetchApiMovies.getSearch(query, pageNumber);
@@ -104,11 +113,14 @@ export async function setPaginationSearch(query, page) {
         renderMoviesList(movies, genresList);
         setPaginationSearch(query, pageNumber);
         addToggleModal();
+        loader.off();
 
         ;
       } else if (
         event.target.classList.contains('pagination-container__prev-button')
       ) {
+        topFunction();
+        loader.on();
         currentPage--;
         const genresList = await getGenresIdsList();
         const response = await fetchApiMovies.getSearch(query, currentPage);
@@ -116,11 +128,14 @@ export async function setPaginationSearch(query, page) {
         renderMoviesList(movies, genresList);
         setPaginationSearch(query, currentPage);
         addToggleModal();
+        loader.off();
 
 
       } else if (
         event.target.classList.contains('pagination-container__next-button')
       ) {
+        topFunction();
+        loader.on();
         currentPage++;
         const genresList = await getGenresIdsList();
         const response = await fetchApiMovies.getSearch(query, currentPage);
@@ -128,6 +143,7 @@ export async function setPaginationSearch(query, page) {
         renderMoviesList(movies, genresList);
         setPaginationSearch(query, currentPage);
         addToggleModal();
+        loader.off();
       }
     });
   });
