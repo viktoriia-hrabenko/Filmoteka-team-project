@@ -66,6 +66,7 @@
   font-size: 12px;
   line-height: 16px;
   color:getColor('header-text-color');
+  text-transform: uppercase;
 
   @media screen and (max-width:768px) {
     width: 125.03px;
@@ -89,6 +90,7 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  text-transform: uppercase;
 
   @media screen and (max-width:768px) {
     width: 125.03px;
@@ -117,13 +119,13 @@
 }
 
 .modal-movie__title{
-    width: 266px;
-    height: 31px;
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 30px;
     line-height: 35px;
     color:getColor('title');
+    text-transform: uppercase;
+    display: block;
   
   @media screen and (max-width:768px) {
     font-size: 20px;
@@ -137,6 +139,59 @@
     font-size: 12px;
     line-height: 16px;
     color:getColor('modal-text-color');
+    padding-bottom: 5px;
+
+    &--text{
+      width: 110px;
+      display: inline-flex;
+
+      @media screen and (max-width:768px) {
+        width: 90px;
+      }
+    
+      //@media screen and (max-width:320px) {
+       // padding: 28px;
+      //}
+    }
+
+    &--parm{
+      display: inline-flex;
+
+      @media screen and (max-width:768px){
+        width: 120px;
+    }
+  }
+}
+
+.modal-movie__vote{
+    color:getColor('header-text-color');
+    width: 36px;
+    height: 16px;
+    padding: 1px;
+    background-color: getColor('accent');
+    border-radius: 5px;
+}
+
+.modal-movie__votes{
+    color:getColor('title');
+    width: 36px;
+    height: 16px;
+    padding: 1px;
+    background-color: getColor('footer-bacground-color');
+    border-radius: 5px;
+}
+
+.modal-movie__popularity{
+    color:getColor('title');
+}
+
+.modal-movie__original-title{
+    color:getColor('title');
+    text-transform: uppercase;
+}
+
+.modal-movie__genre{
+    color:getColor('title');
 }
 
 .modal-mowie__about{
@@ -145,6 +200,13 @@
     font-size: 12px;
     line-height: 16px;
     color:getColor('title');
+}
+
+.modal-movie__text{
+     font-family: 'Roboto';
+     font-weight: 500;
+     font-size: 12px;
+     line-height: 20px;
 }
 
 .modal-movie__content{
@@ -156,7 +218,8 @@
   }
 
   @media screen and (max-width:320px) {
-    padding: 28px;
+    padding: 21px;
+    flex-wrap: wrap;
   }
 }
 
@@ -168,4 +231,28 @@
 
 .modal-movie__button{
   display: flex;
+}
+
+.modal-movie__poster{
+  padding: 14px;
+
+  @media screen and (max-width:320px) {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 18px;
+    padding-bottom: 14px;
+  }
+
+}
+
+.modal-movie__button{
+  gap: 15px;
+  display: flex;
+  align-items:flex-end;
+  height: 65px;
+}
+
+.modal-movie__list{
+  display:inline;
+  justify-content:space-evenly
 }
