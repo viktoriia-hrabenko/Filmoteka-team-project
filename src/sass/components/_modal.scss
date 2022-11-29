@@ -17,7 +17,7 @@
 }
 
 .modal-movie {
-  height: 958px;
+  // height: 958px;
   width: 280px;
   position: absolute;
   left: 0;
@@ -25,6 +25,7 @@
   top: 0;
   bottom: 0;
   margin: auto;
+  overflow-y: scroll;
 
   border-radius: 0.5rem;
   background-color: getColor('background-modal');
@@ -33,9 +34,10 @@
   @media screen and (min-width: 768px) {
     height: 562px;
     width: 618px;
+    overflow-y: scroll;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     height: 568px;
     width: 882px;
     left: 0;
@@ -43,18 +45,24 @@
     top: 20px;
     bottom: 0;
     margin: auto;
+    overflow-y: scroll;
   }
 }
 
 .modal-movie__button--close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 13px;
+  right: 2px;
   fill: getColor('title');
   background-color: getColor('background-modal');
   margin-left: auto;
   cursor: pointer;
   border: none;
+
+  @media screen and (min-width: 768px) {
+    top: 18px;
+    right: 18px;
+  }
 }
 
 .modal-movie__button--watched {
@@ -96,7 +104,7 @@
     height: 44px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     width: 136px;
     height: 44px;
   }
@@ -141,7 +149,7 @@
     height: 44px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     width: 136px;
     height: 44px;
   }
@@ -157,7 +165,7 @@
     height: 373.55px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     width: 330px;
     height: 477.8px;
   }
@@ -203,7 +211,7 @@
       width: 160px;
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1024px) {
       width: 325px;
     }
   }
@@ -267,7 +275,7 @@
     flex-wrap: nowrap;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     padding: 30px;
   }
 }
@@ -296,7 +304,7 @@
     padding-bottom: 14px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     padding: 14px;
   }
 }
