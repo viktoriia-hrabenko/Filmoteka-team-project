@@ -7,17 +7,15 @@ import { Loader } from './loader';
 const loader = new Loader();
 
 function topFunction() {
-  document.body.scrollTop = 0; 
-  document.documentElement.scrollTop = 0; 
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
-
 
 const fetchApiMovies = new FetchApiMovies();
 
 export async function setPaginationSearch(query, page) {
   refs.paginationNumbers.innerHTML = '';
   const response = await fetchApiMovies.getSearch(query, page);
-  console.log(response)
   const totalNumberOfPages = await response.total_pages;
   let currentPage = await response.page;
   let paginationMArkup = '';
@@ -102,7 +100,7 @@ export async function setPaginationSearch(query, page) {
   handleActiveButton();
 
   paginationButtons.forEach(button => {
-    button.addEventListener('click', async (event) => {
+    button.addEventListener('click', async event => {
       if (event.target.classList.contains('pagination-container__button')) {
         topFunction();
         loader.on();
@@ -114,8 +112,6 @@ export async function setPaginationSearch(query, page) {
         setPaginationSearch(query, pageNumber);
         addToggleModal();
         loader.off();
-
-        ;
       } else if (
         event.target.classList.contains('pagination-container__prev-button')
       ) {
@@ -129,8 +125,6 @@ export async function setPaginationSearch(query, page) {
         setPaginationSearch(query, currentPage);
         addToggleModal();
         loader.off();
-
-
       } else if (
         event.target.classList.contains('pagination-container__next-button')
       ) {

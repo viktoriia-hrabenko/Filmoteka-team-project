@@ -10,6 +10,7 @@ import { Loader } from './loader';
 
 const loader = new Loader();
 const fetchApiMovies = new FetchApiMovies();
+const noPoster = new URL('../../images/no-poster.jpg', import.meta.url);
 
 export function addToggleModal() {
   const refsModal = {
@@ -139,8 +140,7 @@ function MovieModalCreate() {
       } else {
         addToLibrary(movie.id, listType);
         button.innerHTML = `Added`;
-        button.style.color= "#8C8C8C";
-        
+        button.style.color = '#8C8C8C';
       }
       if (listTypeText === 'watched') {
         onWatched = !onWatched;
@@ -187,7 +187,14 @@ function MovieModalMurkup({
   vote_average,
   vote_count,
 }) {
-  modalMoviePoster.src = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  // checking and setting the default poster
+  if (poster_path === null) {
+    poster_path = noPoster;
+  } else {
+    poster_path = `https://image.tmdb.org/t/p/w500${poster_path}`;
+  }
+
+  modalMoviePoster.src = poster_path;
   modalMovieTitle.innerHTML = title;
   modalMovieVote.innerHTML = vote_average.toFixed(1);
   modalMovieVotes.innerHTML = vote_count;
