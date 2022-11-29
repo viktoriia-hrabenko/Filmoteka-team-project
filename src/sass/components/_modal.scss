@@ -58,40 +58,40 @@
 }
 
 .modal-movie__button--watched {
-    width: 112.58px;
-    height: 44px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #000000;
+  width: 112.58px;
+  height: 44px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  outline: none;
+  background-color: getColor('background-modal');
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    background-color: getColor(accent);
+    border: 1px solid getColor(accent);
+    filter: drop-shadow(0px 8px 16px rgba(255, 107, 1, 0.6));
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
     background-color: getColor('background-modal');
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    text-transform: uppercase;
+    filter: none;
+    transform: none;
+    border: 1px solid #525252;
+    color: getColor('modal-button-disabled');
+  }
 
-    &:active,
-    &:hover,
-    &:focus {
-      color: #ffffff;
-      background-color: getColor(accent);
-      border: 1px solid getColor(accent);
-      filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-    }
-
-    &:hover {
-      transform: scale(1.03);
-    }
-
-    &:disabled{
-      background-color: getColor('background-modal');
-      filter: none;
-      transform: none;
-      border: 1px solid #000000;
-      color: getColor('modal-button-disabled');
-    }
-
-  @media screen and (min-width: 768px)  {
+  @media screen and (min-width: 768px) {
     width: 125.03px;
     height: 44px;
   }
@@ -108,6 +108,7 @@
   border-radius: 5px;
   cursor: pointer;
   border: 1px solid #000000;
+  outline: none;
   background-color: getColor('background-modal');
   font-family: 'Roboto';
   font-weight: 500;
@@ -115,49 +116,48 @@
   line-height: 16px;
   text-transform: uppercase;
 
-    &:active,
-    &:hover,
-    &:focus {
-      color:getColor('background-modal');
-      background-color: getColor(accent);
-      border: 1px solid getColor(accent);
-      filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-    }
+  &:hover,
+  &:focus {
+    color: getColor('background-modal');
+    background-color: getColor(accent);
+    border: 1px solid getColor(accent);
+    filter: drop-shadow(0px 8px 16px rgba(255, 107, 1, 0.6));
+  }
 
-    &:hover {
-      transform: scale(1.03);
-    }
+  &:active {
+    transform: scale(0.95);
+  }
 
-    &:disabled{
-      background-color: getColor('background-modal');
-      filter: none;
-      transform: none;
-      border: 1px solid #000000;
-      color: getColor('modal-button-disabled');
-    }
+  &:disabled {
+    background-color: getColor('background-modal');
+    filter: none;
+    transform: none;
+    border: 1px solid #525252;
+    color: getColor('modal-button-disabled');
+  }
 
-  @media screen and (min-width:768px){
+  @media screen and (min-width: 768px) {
     width: 125.03px;
     height: 44px;
   }
 
   @media screen and (min-width: 1200px) {
     width: 136px;
-    height: 44px; 
+    height: 44px;
   }
 }
 
-.modal-movie__poster--img{
-    width: 240px;
-    height: 356.57px;
-    border-radius: 5px;
+.modal-movie__poster--img {
+  width: 240px;
+  height: 356.57px;
+  border-radius: 5px;
 
   @media screen and (min-width: 768px) {
     width: 264px;
     height: 373.55px;
   }
 
-  @media screen and (min-width: 1200px){
+  @media screen and (min-width: 1200px) {
     width: 330px;
     height: 477.8px;
   }
@@ -190,22 +190,21 @@
     width: 90px;
     display: inline-flex;
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) {
       width: 110px;
     }
-
   }
 
   &--parm {
     display: inline-flex;
     width: 120px;
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) {
       width: 160px;
     }
 
     @media screen and (min-width: 1200px) {
-     width:325px;
+      width: 325px;
     }
   }
 }
@@ -265,10 +264,10 @@
 
   @media screen and (min-width: 768px) {
     padding: 29px;
-    flex-wrap:nowrap;
+    flex-wrap: nowrap;
   }
 
-  @media screen and (min-width: 1200px)  {
+  @media screen and (min-width: 1200px) {
     padding: 30px;
   }
 }
@@ -277,11 +276,10 @@
   display: flex;
   flex-direction: column;
   padding-left: 0px;
-  
-  @media screen and (min-width: 768px){
+
+  @media screen and (min-width: 768px) {
     padding-left: 20px;
   }
-  
 }
 
 .modal-movie__button {
