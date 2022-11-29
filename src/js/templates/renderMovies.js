@@ -62,4 +62,11 @@ const renderMoviesList = (movies, genresList) => {
     .join('');
 
   refs.moviesList.innerHTML = markupMoviesList;
+
+  // removing empty info__about-item
+  document.querySelectorAll('.info__about-item').forEach(item => {
+    if (item.textContent === '') {
+      item.style.display = 'none';
+    }
+  });
 };
