@@ -17,7 +17,7 @@
 }
 
 .modal-movie {
-  height: 958px;
+  // height: 958px;
   width: 280px;
   position: absolute;
   left: 0;
@@ -25,6 +25,7 @@
   top: 0;
   bottom: 0;
   margin: auto;
+  overflow-y: scroll;
 
   border-radius: 0.5rem;
   background-color: getColor('background-modal');
@@ -33,9 +34,10 @@
   @media screen and (min-width: 768px) {
     height: 562px;
     width: 618px;
+    overflow-y: scroll;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     height: 568px;
     width: 882px;
     left: 0;
@@ -43,60 +45,66 @@
     top: 20px;
     bottom: 0;
     margin: auto;
+    overflow-y: scroll;
   }
 }
 
 .modal-movie__button--close {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 13px;
+  right: 2px;
   fill: getColor('title');
   background-color: getColor('background-modal');
   margin-left: auto;
   cursor: pointer;
   border: none;
+
+  @media screen and (min-width: 768px) {
+    top: 18px;
+    right: 18px;
+  }
 }
 
 .modal-movie__button--watched {
-    width: 112.58px;
-    height: 44px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #000000;
+  width: 112.58px;
+  height: 44px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 1px solid #000000;
+  outline: none;
+  background-color: getColor('background-modal');
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    color: #ffffff;
+    background-color: getColor(accent);
+    border: 1px solid getColor(accent);
+    filter: drop-shadow(0px 8px 16px rgba(255, 107, 1, 0.6));
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:disabled {
     background-color: getColor('background-modal');
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
-    text-transform: uppercase;
+    filter: none;
+    transform: none;
+    border: 1px solid #525252;
+    color: getColor('modal-button-disabled');
+  }
 
-    &:active,
-    &:hover,
-    &:focus {
-      color: #ffffff;
-      background-color: getColor(accent);
-      border: 1px solid getColor(accent);
-      filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-    }
-
-    &:hover {
-      transform: scale(1.03);
-    }
-
-    &:disabled{
-      background-color: getColor('background-modal');
-      filter: none;
-      transform: none;
-      border: 1px solid #000000;
-      color: getColor('modal-button-disabled');
-    }
-
-  @media screen and (min-width: 768px)  {
+  @media screen and (min-width: 768px) {
     width: 125.03px;
     height: 44px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     width: 136px;
     height: 44px;
   }
@@ -108,6 +116,7 @@
   border-radius: 5px;
   cursor: pointer;
   border: 1px solid #000000;
+  outline: none;
   background-color: getColor('background-modal');
   font-family: 'Roboto';
   font-weight: 500;
@@ -115,49 +124,48 @@
   line-height: 16px;
   text-transform: uppercase;
 
-    &:active,
-    &:hover,
-    &:focus {
-      color:getColor('background-modal');
-      background-color: getColor(accent);
-      border: 1px solid getColor(accent);
-      filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-    }
+  &:hover,
+  &:focus {
+    color: getColor('background-modal');
+    background-color: getColor(accent);
+    border: 1px solid getColor(accent);
+    filter: drop-shadow(0px 8px 16px rgba(255, 107, 1, 0.6));
+  }
 
-    &:hover {
-      transform: scale(1.03);
-    }
+  &:active {
+    transform: scale(0.95);
+  }
 
-    &:disabled{
-      background-color: getColor('background-modal');
-      filter: none;
-      transform: none;
-      border: 1px solid #000000;
-      color: getColor('modal-button-disabled');
-    }
+  &:disabled {
+    background-color: getColor('background-modal');
+    filter: none;
+    transform: none;
+    border: 1px solid #525252;
+    color: getColor('modal-button-disabled');
+  }
 
-  @media screen and (min-width:768px){
+  @media screen and (min-width: 768px) {
     width: 125.03px;
     height: 44px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     width: 136px;
-    height: 44px; 
+    height: 44px;
   }
 }
 
-.modal-movie__poster--img{
-    width: 240px;
-    height: 356.57px;
-    border-radius: 5px;
+.modal-movie__poster--img {
+  width: 240px;
+  height: 356.57px;
+  border-radius: 5px;
 
   @media screen and (min-width: 768px) {
     width: 264px;
     height: 373.55px;
   }
 
-  @media screen and (min-width: 1200px){
+  @media screen and (min-width: 1024px) {
     width: 330px;
     height: 477.8px;
   }
@@ -190,22 +198,21 @@
     width: 90px;
     display: inline-flex;
 
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) {
       width: 110px;
     }
-
   }
 
   &--parm {
     display: inline-flex;
     width: 120px;
 
-    @media screen and (min-width: 768px){
-      width: 160px;
+    @media screen and (min-width: 768px) {
+      width: 150px;
     }
 
-    @media screen and (min-width: 1200px) {
-     width:325px;
+    @media screen and (min-width: 1024px) {
+      width: 320px;
     }
   }
 }
@@ -226,7 +233,6 @@
   width: 36px;
   height: 16px;
   padding-left: 2px;
-  background-color: getColor('footer-bacground-color');
   border-radius: 5px;
 }
 
@@ -265,10 +271,10 @@
 
   @media screen and (min-width: 768px) {
     padding: 29px;
-    flex-wrap:nowrap;
+    flex-wrap: nowrap;
   }
 
-  @media screen and (min-width: 1200px)  {
+  @media screen and (min-width: 1024px) {
     padding: 30px;
   }
 }
@@ -277,11 +283,10 @@
   display: flex;
   flex-direction: column;
   padding-left: 0px;
-  
-  @media screen and (min-width: 768px){
+
+  @media screen and (min-width: 768px) {
     padding-left: 20px;
   }
-  
 }
 
 .modal-movie__button {
@@ -298,7 +303,7 @@
     padding-bottom: 14px;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     padding: 14px;
   }
 }

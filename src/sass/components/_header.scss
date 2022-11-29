@@ -236,7 +236,11 @@
 
 .header {
   &__search-form {
-    margin-top: 41px;
+    margin-top: 61px;
+
+    @media screen and (min-width: 1024px) {
+      margin-top: 41px;
+    }
   }
 }
 
